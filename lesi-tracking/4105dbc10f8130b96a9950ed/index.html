@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh-CN"><head>
 <meta charset="utf-8">
-<meta name="robots" content="noindex,nofollow">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>到期数修改方案 · 22条清单</title>
+<meta name="robots" content="noindex,nofollow">
+<title>到期数修改方案 · 22条清单（图解版）</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -42,17 +42,35 @@ h1{font-size:22px;color:#e8630a;margin-bottom:4px;line-height:1.35}
 .word.speaking{background:#ffe2c6}
 #tts{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(12px + env(safe-area-inset-bottom));z-index:20;width:calc(100% - 28px);max-width:452px;min-height:52px;border:0;border-radius:26px;font:inherit;font-size:18px;font-weight:700;color:#fff;background:#e8630a;box-shadow:0 4px 14px rgba(232,99,10,.35);cursor:pointer}
 #tts.off{background:#888;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+
+.fig{margin:10px 0 4px}
+.fig img{display:block;width:100%;height:auto;border-radius:12px}
+.fig figcaption{font-size:16px;color:#444;margin-top:6px;line-height:1.55}
+.mk{display:inline-block;font-size:14px;background:#6b7280;color:#fff;border-radius:8px;padding:0 7px;margin-right:6px;vertical-align:1px}
+.item .ih{font-size:17px;margin-bottom:2px}
+.item .ih .tag{margin-bottom:4px}
+.item .id{color:#e8630a;font-size:19px}
+.item .at{display:block;font-size:16px;color:#888}
+.do{background:#fff3e8;border-radius:8px;padding:8px 10px;margin-top:8px;font-size:16px}
+.who{background:#eef3fb;border-radius:8px;padding:8px 10px;margin-top:6px;font-size:16px}
+.sec{font-size:18px;color:#e8630a;margin:18px 0 8px}
+.info{background:#eef3fb;border-left:4px solid #3b7dd8;border-radius:6px;padding:8px 10px;font-size:16px;margin-bottom:10px}
+.note2{background:#fff3cd;border-left:4px solid #e8a20a;border-radius:6px;padding:8px 10px;font-size:16px;margin:-4px 0 12px}
+.ref{font-size:16px;color:#666;background:#fff;border:1px dashed #e8630a;border-radius:10px;padding:10px 12px;margin-bottom:12px}
+.jump{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px}
+.jump a{flex:0 0 auto;min-height:40px;line-height:38px;padding:0 12px;border:1px solid #e8630a;border-radius:20px;color:#e8630a;text-decoration:none;font-size:16px;background:#fff}
+.item{scroll-margin-top:110px}.sec{scroll-margin-top:110px}
 </style>
 </head>
 <body class="speak-on">
 <header><div class="hd">
-<div class="t">8790 控制台 · 给 Tony 看</div>
+<div class="t">8790 控制台 · 给 Tony 看（图解版）</div>
 <nav class="tabs"><a href="#plan" class="on">方案</a><a href="#list">22条清单</a></nav>
 </div></header>
-
 <main class="wrap">
 <section id="plan">
 <h1 class="say">控制台「到期数」修改方案</h1><div class="sub say">只改显示，不改调度规则 · 10/19 12:00 首尔时间</div>
+<div class="card"><span class="tag orange say">先看懂：程序怎么跑</span><figure class="fig"><img src="img/01-pipeline.png" width="390" height="571" alt="示意图：程序 5 关流程" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>一条单要过 5 关：后台读商品 → 商城核对 → 写前截图+查重 → 写入后台 → 写后反查。红框③⑤是两道安全关卡；今天查了 75 条，其中 4 条通过并正式回填。</figcaption></figure><figure class="fig"><img src="img/02-timeline.png" width="390" height="426" alt="示意图：每天查询时间线" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>红框①：今天 09:06 开始、10:13 查完全部 75 条；10:00 ABC 站登录失效暂停。红框②：每条每天只查一次，窗口 09:00–19:00。</figcaption></figure></div>
 <div class="card"><span class="tag red say">现在（容易误会）</span>
 <div class="row"><div class="box say" style="background:#fdecea"><div class="big" style="color:#d9534f">67</div><div class="lbl">到期</div></div></div>
 <div class="warn say">看起来像还有 67 条没跑，其实今天早就查完了</div></div>
@@ -63,6 +81,7 @@ h1{font-size:22px;color:#e8630a;margin-bottom:4px;line-height:1.35}
 <div class="box say" style="background:#eef3fb"><div class="big" style="color:#3b7dd8">66</div><div class="lbl">今天已查过</div></div>
 <div class="box say" style="background:#f1f1f1"><div class="big" style="color:#888">1</div><div class="lbl">站点暂停挡住</div></div>
 </div><div class="lbl say" style="margin-top:8px">每条每天只查一次，已查过的明天 09:00 再查</div></div>
+<div class="card"><figure class="fig"><img src="img/03-console.png" width="390" height="396" alt="示意图：控制台改前改后对比" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>红框①：改前只有「到期 67」，像是还有很多没跑。红框②：改后拆成 0 / 66 / 1（估算），一眼看出今天已经查完。</figcaption></figure></div>
 <div class="card"><span class="tag orange say">怎么做（5 步）</span>
 <div class="step say"><div class="n">1</div><div>计数时扣掉<b>今天已查</b>和<b>暂停站</b>的单</div></div>
 <div class="step say"><div class="n">2</div><div>旧的「到期」字段保留，<b>新增</b>3 个数，不影响别的功能</div></div>
@@ -70,32 +89,153 @@ h1{font-size:22px;color:#e8630a;margin-bottom:4px;line-height:1.35}
 <div class="step say"><div class="n">4</div><div>全量测试 + 检查 + 隔离打包</div></div>
 <div class="step say"><div class="n">5</div><div>按原流程发布：停调度→全空闲→备份→重启 8790→核对</div></div>
 </div>
+<div class="card"><figure class="fig"><img src="img/04-steps.png" width="390" height="517" alt="示意图：5 步实施图" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>红框是最关键的两步：第 1 步把数算对；第 5 步按原流程安全重启 8790。</figcaption></figure></div>
 <div class="card"><span class="tag blue say">为什么现在合适</span><div class="say">今天能查的 75 条已全部查完，程序现在空闲，重启不耽误回填。</div></div>
 </section>
-
 <div class="divider"></div>
-
 <section id="list">
 <h1 class="say">等你处理的 22 条</h1><div class="sub say">来自 8790 智能面板 · 10/19 11:56 首尔时间</div>
-<div class="card" style="border:2px solid #d9534f"><span class="tag red say">⚠️ 最先看</span><div class="ids say"><b>295594</b> Naver · 尺码和客户填的不一致，可能买错（还没发货）</div></div>
-<div class="card"><span class="tag orange say">① 后台链接/订单号对不上 · 6 条</span><div class="ids say">Gmarket <b>295350 · 295585 · 295598 · 295696</b><br>Auction <b>295520</b><br>11st <b>295667</b></div><div class="lbl say">👉 检查后台这单的采购链接和订单号</div></div>
-<div class="card"><span class="tag orange say">② 商品/选项不一致 · 5 条</span><div class="ids say">Naver <b>295431</b> · Gmarket <b>295595</b><br>LotteOn <b>295487</b> · Hmall <b>295596</b>（找不到商品）</div><div class="lbl say">👉 看对照页确认是否买对</div></div>
-<div class="card"><span class="tag orange say">③ 颜色无法证实 · 3 条</span><div class="ids say">Naver <b>295349 · 295597</b><br>LotteOn <b>293668</b></div><div class="lbl say">👉 看商品图确认颜色</div></div>
-<div class="card"><span class="tag orange say">④ 后台规格不完整 · 5 条</span><div class="ids say">Ably <b>295200 · 295415</b> · 11st <b>295392</b><br>Naver <b>295666</b> · W Concept <b>295416</b>（BLANC MEDIUM）</div><div class="lbl say">👉 在后台补全规格</div></div>
-<div class="card"><span class="tag gray say">⑤ 其他 · 3 条</span><div class="ids say">LotteOn <b>295175</b>：可能取消/售后中<br>Nike <b>294247</b>：告诉我用哪个账号下的<br>Olive Young <b>295601</b>：当日达，后台手动填</div></div>
-</section>
 
+<div class="info say">📌 图都是<b>示意图</b>（没有后台/商城真截图）。目前数据里没有商城订单号和具体规格值（295416 除外），以对照页为准。</div>
+<div class="jump"><a href="#i295594">295594</a><a href="#i295416">295416</a><a href="#i295593">295593 ABC</a><a href="#g1">①</a><a href="#g2">②</a><a href="#g3">③</a><a href="#g4">④</a><a href="#g5">⑤</a></div>
+<div class="card" style="border:2px solid #d9534f"><span class="tag red say">⚠️ 最先看</span><div class="ids say"><b>295594</b> Naver · 尺码和客户填的不一致，可能买错（还没发货）</div></div>
+<div class="card item" id="i295594">
+<div class="ih say"><span class="tag red">⚠️ 最先看</span> <b class="id">295594</b> Naver<span class="at">查于 10/19 09:20 首尔时间</span></div>
+<figure class="fig"><img src="img/item-295594.png" width="390" height="398" alt="示意图：295594 Naver 客户填写和采购订单不一致：尺码" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>红框①：尺码对不上——客户在后台填的尺码和实际在 Naver 买的不一样；商品、选项、数量、金额都对得上。商城还没发货，现在改来得及。</figcaption></figure>
+<div class="do say"><b>👉 你要做：</b>请看对照页确认是否买对</div>
+<div class="who say"><b>➡️ 下一步谁处理：</b>你（Tony）先确认是否买错；改好后程序明天 09:00 起会重新查这单。</div></div>
+<h2 class="sec say">重点单</h2>
+<div class="card item" id="i295416">
+<div class="ih say"><span class="tag orange">④ 规格</span> <b class="id">295416</b> W Concept<span class="at">查于 10/19 09:57 首尔时间</span></div>
+<figure class="fig"><img src="img/item-295416.png" width="390" height="293" alt="示意图：295416 W Concept 后台规格不完整，没法和订单逐项对上" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>红框①：后台写 BLANC MEDIUM，商城订单是 BURGUNDY BROWN，两边规格不一样。</figcaption></figure>
+<div class="do say"><b>👉 你要做：</b>请看对照页确认，或在后台补全规格</div>
+<div class="who say"><b>➡️ 下一步谁处理：</b>你（Tony）先处理；改好后程序明天 09:00 起会重新查这单。</div></div>
+<div class="card item" id="i295593">
+<div class="ih say"><span class="tag gray">ABC 登录 · 不在22条里</span> <b class="id">295593</b> ABC（a-rt.com）<span class="at">查于 10/19 10:00 首尔时间</span></div>
+<figure class="fig"><img src="img/item-295593.png" width="390" height="391" alt="示意图：295593 ABC（a-rt.com） 网站登录失效或没确认登录成功" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>红框①：10:00 起 ABC 登录失效，站点暂停；红框③：程序重试不行时，需要你重新登录再手动触发。这单不在 22 条里，单独列出。</figcaption></figure>
+<div class="do say"><b>👉 你要做：</b>程序会按保存账号重试；不行再找你</div>
+<div class="who say"><b>➡️ 下一步谁处理：</b>程序先处理（按保存账号重试）；不行再找你重新登录、手动触发。</div></div>
+<h2 class="sec say" id="g1">① 组逐单图解</h2>
+<div class="card"><span class="tag orange say">① 后台链接/订单号对不上 · 6 条</span><div class="ids say">Gmarket <b>295350 · 295585 · 295598 · 295696</b><br>Auction <b>295520</b><br>11st <b>295667</b></div><div class="lbl say">👉 检查后台这单的采购链接和订单号</div></div>
+<div class="card item" id="i295350">
+<div class="ih say"><b class="id">295350</b> Gmarket<span class="at">查于 10/19 09:40 首尔时间</span></div>
+<figure class="fig"><img src="img/item-295350.png" width="390" height="355" alt="示意图：295350 Gmarket 后台的采购链接/订单号/日期不完整或对不上" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>红框标出的地方：后台的采购链接/订单号/日期不完整或对不上。</figcaption></figure>
+<div class="do say"><b>👉 你要做：</b>请检查后台这单的采购链接和订单号</div>
+<div class="who say"><b>➡️ 下一步谁处理：</b>你（Tony）先处理；改好后程序明天 09:00 起会重新查这单。</div></div>
+<div class="card item" id="i295585">
+<div class="ih say"><b class="id">295585</b> Gmarket<span class="at">查于 10/19 09:40 首尔时间</span></div>
+<figure class="fig"><img src="img/item-295585.png" width="390" height="355" alt="示意图：295585 Gmarket 后台的采购链接/订单号/日期不完整或对不上" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>红框标出的地方：后台的采购链接/订单号/日期不完整或对不上。</figcaption></figure>
+<div class="do say"><b>👉 你要做：</b>请检查后台这单的采购链接和订单号</div>
+<div class="who say"><b>➡️ 下一步谁处理：</b>你（Tony）先处理；改好后程序明天 09:00 起会重新查这单。</div></div>
+<div class="card item" id="i295598">
+<div class="ih say"><b class="id">295598</b> Gmarket<span class="at">查于 10/19 09:42 首尔时间</span></div>
+<figure class="fig"><img src="img/item-295598.png" width="390" height="355" alt="示意图：295598 Gmarket 后台的采购链接/订单号/日期不完整或对不上" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>红框标出的地方：后台的采购链接/订单号/日期不完整或对不上。</figcaption></figure>
+<div class="do say"><b>👉 你要做：</b>请检查后台这单的采购链接和订单号</div>
+<div class="who say"><b>➡️ 下一步谁处理：</b>你（Tony）先处理；改好后程序明天 09:00 起会重新查这单。</div></div>
+<div class="card item" id="i295696">
+<div class="ih say"><b class="id">295696</b> Gmarket<span class="at">查于 10/19 10:13 首尔时间</span></div>
+<figure class="fig"><img src="img/item-295696.png" width="390" height="355" alt="示意图：295696 Gmarket 后台的采购链接/订单号/日期不完整或对不上" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>红框标出的地方：后台的采购链接/订单号/日期不完整或对不上。</figcaption></figure>
+<div class="do say"><b>👉 你要做：</b>请检查后台这单的采购链接和订单号</div>
+<div class="who say"><b>➡️ 下一步谁处理：</b>你（Tony）先处理；改好后程序明天 09:00 起会重新查这单。</div></div>
+<div class="card item" id="i295520">
+<div class="ih say"><b class="id">295520</b> Auction<span class="at">查于 10/19 09:54 首尔时间</span></div>
+<figure class="fig"><img src="img/item-295520.png" width="390" height="355" alt="示意图：295520 Auction 后台的采购链接/订单号/日期不完整或对不上" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>红框标出的地方：后台的采购链接/订单号/日期不完整或对不上。</figcaption></figure>
+<div class="do say"><b>👉 你要做：</b>请检查后台这单的采购链接和订单号</div>
+<div class="who say"><b>➡️ 下一步谁处理：</b>你（Tony）先处理；改好后程序明天 09:00 起会重新查这单。</div></div>
+<div class="card item" id="i295667">
+<div class="ih say"><b class="id">295667</b> 11st<span class="at">查于 10/19 10:06 首尔时间</span></div>
+<figure class="fig"><img src="img/item-295667.png" width="390" height="355" alt="示意图：295667 11st 后台的采购链接/订单号/日期不完整或对不上" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>红框标出的地方：后台的采购链接/订单号/日期不完整或对不上。</figcaption></figure>
+<div class="do say"><b>👉 你要做：</b>请检查后台这单的采购链接和订单号</div>
+<div class="who say"><b>➡️ 下一步谁处理：</b>你（Tony）先处理；改好后程序明天 09:00 起会重新查这单。</div></div>
+<h2 class="sec say" id="g2">② 组逐单图解</h2>
+<div class="card"><span class="tag orange say">② 商品/选项不一致 · 5 条</span><div class="ids say">Naver <b>295431</b> · Gmarket <b>295595</b><br>LotteOn <b>295487</b> · Hmall <b>295596</b>（找不到商品）</div><div class="lbl say">👉 看对照页确认是否买对</div></div>
+<div class="note2 say">②组数量待核实（写着 5 条，只列了 4 个号）。状态数据里 295594（最先看）的处理建议也是「看对照页确认是否买对」，可能就是第 5 条。</div>
+<div class="card item" id="i295431">
+<div class="ih say"><b class="id">295431</b> Naver<span class="at">查于 10/19 09:17 首尔时间</span></div>
+<figure class="fig"><img src="img/item-295431.png" width="390" height="273" alt="示意图：295431 Naver 订单里的商品/选项和后台填写不一致" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>红框标出的地方：订单里的商品/选项和后台填写不一致。</figcaption></figure>
+<div class="do say"><b>👉 你要做：</b>请看对照页确认是否买对</div>
+<div class="who say"><b>➡️ 下一步谁处理：</b>你（Tony）先处理；改好后程序明天 09:00 起会重新查这单。</div></div>
+<div class="card item" id="i295595">
+<div class="ih say"><b class="id">295595</b> Gmarket<span class="at">查于 10/19 09:41 首尔时间</span></div>
+<figure class="fig"><img src="img/item-295595.png" width="390" height="273" alt="示意图：295595 Gmarket 订单里的商品/选项和后台填写不一致" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>红框标出的地方：订单里的商品/选项和后台填写不一致。</figcaption></figure>
+<div class="do say"><b>👉 你要做：</b>请看对照页确认是否买对</div>
+<div class="who say"><b>➡️ 下一步谁处理：</b>你（Tony）先处理；改好后程序明天 09:00 起会重新查这单。</div></div>
+<div class="card item" id="i295487">
+<div class="ih say"><b class="id">295487</b> LotteOn<span class="at">查于 10/19 09:54 首尔时间</span></div>
+<figure class="fig"><img src="img/item-295487.png" width="390" height="273" alt="示意图：295487 LotteOn 订单里的商品/选项和后台填写不一致" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>红框标出的地方：订单里的商品/选项和后台填写不一致。</figcaption></figure>
+<div class="do say"><b>👉 你要做：</b>请看对照页确认是否买对</div>
+<div class="who say"><b>➡️ 下一步谁处理：</b>你（Tony）先处理；改好后程序明天 09:00 起会重新查这单。</div></div>
+<div class="card item" id="i295596">
+<div class="ih say"><b class="id">295596</b> Hmall<span class="at">查于 10/19 09:44 首尔时间</span></div>
+<figure class="fig"><img src="img/item-295596.png" width="390" height="273" alt="示意图：295596 Hmall 订单里的商品/选项和后台填写不一致" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>红框①：按后台的采购链接在 Hmall 找不到这个商品，程序没法核对。</figcaption></figure>
+<div class="do say"><b>👉 你要做：</b>请看对照页确认是否买对</div>
+<div class="who say"><b>➡️ 下一步谁处理：</b>你（Tony）先处理；改好后程序明天 09:00 起会重新查这单。</div></div>
+<h2 class="sec say" id="g3">③ 组逐单图解</h2>
+<div class="card"><span class="tag orange say">③ 颜色无法证实 · 3 条</span><div class="ids say">Naver <b>295349 · 295597</b><br>LotteOn <b>293668</b></div><div class="lbl say">👉 看商品图确认颜色</div></div>
+<div class="card item" id="i295349">
+<div class="ih say"><b class="id">295349</b> Naver<span class="at">查于 10/19 09:14 首尔时间</span></div>
+<figure class="fig"><img src="img/item-295349.png" width="390" height="273" alt="示意图：295349 Naver 后台颜色和订单对不上或无法证实" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>红框标出的地方：后台颜色和订单对不上或无法证实。</figcaption></figure>
+<div class="do say"><b>👉 你要做：</b>请看对照页的商品图确认颜色</div>
+<div class="who say"><b>➡️ 下一步谁处理：</b>你（Tony）先处理；改好后程序明天 09:00 起会重新查这单。</div></div>
+<div class="card item" id="i295597">
+<div class="ih say"><b class="id">295597</b> Naver<span class="at">查于 10/19 09:21 首尔时间</span></div>
+<figure class="fig"><img src="img/item-295597.png" width="390" height="273" alt="示意图：295597 Naver 后台颜色和订单对不上或无法证实" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>红框标出的地方：后台颜色和订单对不上或无法证实。</figcaption></figure>
+<div class="do say"><b>👉 你要做：</b>请看对照页的商品图确认颜色</div>
+<div class="who say"><b>➡️ 下一步谁处理：</b>你（Tony）先处理；改好后程序明天 09:00 起会重新查这单。</div></div>
+<div class="card item" id="i293668">
+<div class="ih say"><b class="id">293668</b> LotteOn<span class="at">查于 10/19 09:46 首尔时间</span></div>
+<figure class="fig"><img src="img/item-293668.png" width="390" height="251" alt="示意图：293668 LotteOn 后台颜色和订单对不上或无法证实" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>红框①：后台颜色和 LotteOn 订单颜色有冲突。</figcaption></figure>
+<div class="do say"><b>👉 你要做：</b>请看对照页的商品图确认颜色</div>
+<div class="who say"><b>➡️ 下一步谁处理：</b>你（Tony）先处理；改好后程序明天 09:00 起会重新查这单。</div></div>
+<h2 class="sec say" id="g4">④ 组逐单图解</h2>
+<div class="card"><span class="tag orange say">④ 后台规格不完整 · 5 条</span><div class="ids say">Ably <b>295200 · 295415</b> · 11st <b>295392</b><br>Naver <b>295666</b> · W Concept <b>295416</b>（BLANC MEDIUM）</div><div class="lbl say">👉 在后台补全规格</div></div>
+<div class="card item" id="i295200">
+<div class="ih say"><b class="id">295200</b> Ably<span class="at">查于 10/19 09:51 首尔时间</span></div>
+<figure class="fig"><img src="img/item-295200.png" width="390" height="273" alt="示意图：295200 Ably 后台规格不完整，没法和订单逐项对上" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>红框标出的地方：后台规格不完整，没法和订单逐项对上。</figcaption></figure>
+<div class="do say"><b>👉 你要做：</b>请看对照页确认，或在后台补全规格</div>
+<div class="who say"><b>➡️ 下一步谁处理：</b>你（Tony）先处理；改好后程序明天 09:00 起会重新查这单。</div></div>
+<div class="card item" id="i295415">
+<div class="ih say"><b class="id">295415</b> Ably<span class="at">查于 10/19 09:52 首尔时间</span></div>
+<figure class="fig"><img src="img/item-295415.png" width="390" height="273" alt="示意图：295415 Ably 后台规格不完整，没法和订单逐项对上" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>红框标出的地方：后台规格不完整，没法和订单逐项对上。</figcaption></figure>
+<div class="do say"><b>👉 你要做：</b>请看对照页确认，或在后台补全规格</div>
+<div class="who say"><b>➡️ 下一步谁处理：</b>你（Tony）先处理；改好后程序明天 09:00 起会重新查这单。</div></div>
+<div class="card item" id="i295392">
+<div class="ih say"><b class="id">295392</b> 11st<span class="at">查于 10/19 09:52 首尔时间</span></div>
+<figure class="fig"><img src="img/item-295392.png" width="390" height="273" alt="示意图：295392 11st 后台规格不完整，没法和订单逐项对上" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>红框标出的地方：后台规格不完整，没法和订单逐项对上。</figcaption></figure>
+<div class="do say"><b>👉 你要做：</b>请看对照页确认，或在后台补全规格</div>
+<div class="who say"><b>➡️ 下一步谁处理：</b>你（Tony）先处理；改好后程序明天 09:00 起会重新查这单。</div></div>
+<div class="card item" id="i295666">
+<div class="ih say"><b class="id">295666</b> Naver<span class="at">查于 10/19 10:05 首尔时间</span></div>
+<figure class="fig"><img src="img/item-295666.png" width="390" height="460" alt="示意图：295666 Naver 后台规格不完整，没法和订单逐项对上" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>红框①②：尺码、颜色没法比较（后台规格不完整）；商品、选项、数量、金额都对得上。</figcaption></figure>
+<div class="do say"><b>👉 你要做：</b>请看对照页确认，或在后台补全规格</div>
+<div class="who say"><b>➡️ 下一步谁处理：</b>你（Tony）先处理；改好后程序明天 09:00 起会重新查这单。</div></div>
+<div class="ref say">295416（W Concept）见上面「重点单」 ↑</div>
+<h2 class="sec say" id="g5">⑤ 组逐单图解</h2>
+<div class="card"><span class="tag gray say">⑤ 其他 · 3 条</span><div class="ids say">LotteOn <b>295175</b>：可能取消/售后中<br>Nike <b>294247</b>：告诉我用哪个账号下的<br>Olive Young <b>295601</b>：当日达，后台手动填</div></div>
+<div class="card item" id="i295175">
+<div class="ih say"><b class="id">295175</b> LotteOn<span class="at">查于 10/19 09:49 首尔时间</span></div>
+<figure class="fig"><img src="img/item-295175.png" width="390" height="273" alt="示意图：295175 LotteOn 订单可能在取消或售后中，状态没法确认" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>红框①：LotteOn 订单可能在取消或售后中，状态没法确认。</figcaption></figure>
+<div class="do say"><b>👉 你要做：</b>请看这单是否有取消或售后</div>
+<div class="who say"><b>➡️ 下一步谁处理：</b>你（Tony）先处理；改好后程序明天 09:00 起会重新查这单。</div></div>
+<div class="card item" id="i294247">
+<div class="ih say"><b class="id">294247</b> Nike<span class="at">查于 10/17 20:18 首尔时间</span></div>
+<figure class="fig"><img src="img/item-294247.png" width="390" height="273" alt="示意图：294247 Nike 账号对不上或缺少下单账号" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>红框①：Nike 这单的下单账号对不上或缺少，程序不知道用哪个账号查。</figcaption></figure>
+<div class="do say"><b>👉 你要做：</b>请告诉我这单是哪个账号下的</div>
+<div class="who say"><b>➡️ 下一步谁处理：</b>你告诉我账号 → 程序用那个账号再查。</div></div>
+<div class="card item" id="i295601">
+<div class="ih say"><b class="id">295601</b> Olive Young<span class="at">查于 10/19 10:00 首尔时间</span></div>
+<figure class="fig"><img src="img/item-295601.png" width="390" height="335" alt="示意图：295601 Olive Young 当日达（오늘드림）没有快递单号，按你的决定不自动填" loading="lazy"><figcaption class="say"><span class="mk">示意图</span>红框①②：Olive Young 当日达（오늘드림）没有快递单号，按你的决定不自动填。</figcaption></figure>
+<div class="do say"><b>👉 你要做：</b>请人工在后台填写</div>
+<div class="who say"><b>➡️ 下一步谁处理：</b>你（Tony）人工填写；程序不会自动填这单。</div></div>
+</section>
 <div class="study">
 <h2>📖 顺便学两个词（点一下听发音）</h2>
 <button type="button" class="word" data-text="due" data-lang="en-US"><span class="w">due</span><span class="m">英语 · 到期</span><span class="s">🔊</span></button>
 <button type="button" class="word" data-text="마감" data-lang="ko-KR"><span class="w">마감</span><span class="m">韩语 · ma-gam · 截止/到期</span><span class="s">🔊</span></button>
 </div>
-
 <div class="foot">由 快递单号-obsidian must（Claude+Codex·MacBook）· Grok Bot 制作</div>
 </main>
-
 <button type="button" id="tts">🔊 点字朗读：开</button>
-
 <script>
 (function(){
   var synth = window.speechSynthesis || null;
